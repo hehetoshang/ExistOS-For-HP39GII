@@ -82,4 +82,5 @@ sysigner
 # nix outputs
 result
 
+# 旧版本
 ExistOS-For-HP39GII-build-*
