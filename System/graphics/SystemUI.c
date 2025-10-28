@@ -293,33 +293,5 @@ static void keypad_read(lv_indev_drv_t *indev_drv, lv_indev_data_t *data) {
 
 static TaskHandle_t pUITask;
 
-void SystemUIInit() {
-
-    //UI_Init();
-    xTaskCreate(UI_Task, "UICore", 800, NULL, configMAX_CO_ROUTINE_PRIORITIES - 3, &pUITask);
-}
-
-void UI_Resume();
-void UI_Suspend();
-
-extern bool UIForceRefresh ;
-//void keyMsg(uint32_t key, int state);
-void SystemUIRefresh() 
-{
-    vTaskDelay(pdMS_TO_TICKS(100));
-    UIForceRefresh= true;
-    //keyMsg(0, -1);
-}
-
-void SystemUISuspend() {
-    vTaskSuspend(pUITask);
-    UI_Suspend();
-
-}
-
-void SystemUIResume() {
-    UI_Resume();
-    vTaskResume(pUITask);
-    ll_disp_set_indicator(0, -1);
-    SystemUIRefresh();
-}
+// UI函数现在由UICore.c实现
+// SystemUIInit等函数已在UICore.c中定义

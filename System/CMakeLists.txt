@@ -15,7 +15,7 @@ include_directories(./filesystem/fatfs)
 
 
 
-#include_directories(./KLib/lvgl)
+include_directories(./KLib/lvgl)
 
 #include_directories(${CMAKE_SOURCE_DIR}/Libs/src/micropython-master/)
 #include_directories(${CMAKE_SOURCE_DIR}/Libs/src/micropython-master/ports/eoslib)
@@ -42,7 +42,7 @@ aux_source_directory(./crush                                         SYS_SRCS)
 list(APPEND SYS_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/core/getentropy.c)
 
 #add_subdirectory(gb)
-#add_subdirectory(KLib)
+add_subdirectory(KLib)
 add_subdirectory(KLib/tjpgdec)
 #add_subdirectory(emu48)
 add_subdirectory(applications/user/khicas)
@@ -80,7 +80,7 @@ target_link_libraries(sys.elf -lm -lc -lrdimon -lgcc -lstdc++ -nostartfiles
 tjpgd
 #gb 
 #emu48
-#lvgl
+lvgl
 ${CMAKE_SOURCE_DIR}/Libs/libkcasgui.libcpp
 #${CMAKE_SOURCE_DIR}/Libs/libmpy.libc
 ${CMAKE_SOURCE_DIR}/Libs/libcas.libcpp
